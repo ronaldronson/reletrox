@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
-  "version": "0.10.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "name": "reletrox",
+  "productName": "Relectrox",
+  "version": "0.1.0",
+  "description": "Electron + react + redux application",
   "main": "main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-register --recursive --require ./test/setup.js test/**/*.spec.js",
@@ -25,27 +25,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
+    "url": "git+https://github.com/ronaldronson/reletrox.git"
   },
   "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
+    "name": "ronaldronson",
+    "url": "https://github.com/ronaldronson"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chentsulin/electron-react-boilerplate/issues"
+    "url": "https://github.com/ronaldronson/reletrox.git/issues"
   },
   "keywords": [
     "electron",
-    "boilerplate",
     "react",
     "react-router",
     "flux",
     "webpack",
     "react-hot"
   ],
-  "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/ronaldronson/reletrox.git#readme",
   "devDependencies": {
     "asar": "^0.11.0",
     "babel-core": "^6.9.0",
@@ -98,18 +96,23 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
+    "blaze": "^2.8.0",
+    "classnames": "^2.2.5",
     "css-modules-require-hook": "^4.0.0",
     "electron-debug": "^1.0.1",
     "font-awesome": "^4.6.3",
     "postcss": "^5.0.21",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-dotdotdot": "^1.0.16",
+    "react-modal": "^1.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
     "react-router-redux": "^4.0.4",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
-    "source-map-support": "^0.4.0"
+    "source-map-support": "^0.4.0",
+    "vico": "0.0.7"
   },
   "devEngines": {
     "node": "4.x || 5.x || 6.x",
