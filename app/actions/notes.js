@@ -4,7 +4,7 @@ export const ACTIVE_NOTE = 'ACTIVE_NOTE';
 export const CHANGE_NOTE = 'CHANGE_NOTE';
 export const SORT_BY_DATE = 'SORT_BY_DATE';
 export const FILTER_BY_INPUT = 'FILTER_BY_INPUT';
-
+export const ADD_NOTE = 'ADD_NOTE';
 
 export function sync() {
   return {
@@ -44,4 +44,10 @@ export function filterByInput(value) {
     type: FILTER_BY_INPUT,
     value: value
   };
+}
+
+export function addNote() {
+  return {
+    type: ADD_NOTE
+  }
 }

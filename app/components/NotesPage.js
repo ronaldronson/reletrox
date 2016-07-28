@@ -13,6 +13,7 @@ export default class HomePage extends Component {
 
   render() {
     const {
+      addNote,
       changeNote,
       setActiveCategory,
       setActiveNote,
@@ -31,6 +32,7 @@ export default class HomePage extends Component {
           setActiveCategory={setActiveCategory}/>
         <List
           activeNote={activeNote}
+          addNote={addNote}
           notesList={notesList}
           setActiveNote={setActiveNote}
           setSortByDate={setSortByDate}

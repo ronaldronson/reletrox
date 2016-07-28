@@ -6,6 +6,7 @@ import dateTimeFormat from '../utils/datetime';
 export default class List extends Component {
   static propTypes = {
     activeNote: PropTypes.object.isRequired,
+    addNote: PropTypes.func.isRequired,
     notesList: PropTypes.array.isRequired,
     setActiveNote: PropTypes.func.isRequired,
     setSortByDate: PropTypes.func.isRequired,
@@ -17,6 +18,7 @@ export default class List extends Component {
   render() {
     const {
       activeNote,
+      addNote,
       notesList,
       setActiveNote,
       setSortByDate,
@@ -37,7 +39,11 @@ export default class List extends Component {
                 Date <i className={classnames('fa', {
                   'fa-chevron-down': !sortByDate,
                   'fa-chevron-up': !!sortByDate})}></i>
-              </span>
+            </span>
+            </span>
+            <span className="c-nav__item c-nav__item--right"
+              onClick={addNote}>
+              <i className="fa fa-plus"></i>
             </span>
     		</nav>
         <div className="o-panel o-panel--nav-top">

@@ -112,6 +112,7 @@
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "source-map-support": "^0.4.0",
+    "uuid": "^2.0.2",
     "vico": "0.0.7"
   },
   "devEngines": {

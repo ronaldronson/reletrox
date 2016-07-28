@@ -62,7 +62,7 @@ export default class Page extends Component {
             <i className="fa fa-arrow-right"></i>
           </span>
     			<span className="c-nav__item c-nav__item--right">
-            <i className="fa fa-ellipsis-h"></i>
+            <i className="fa fa-refresh"></i>
           </span>
     		</nav>
         {notEmpty(activeNote) &&
