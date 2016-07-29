@@ -22,6 +22,7 @@ export default class Page extends Component {
 
   static propTypes = {
     activeNote: PropTypes.object.isRequired,
+    deleteNote: PropTypes.func.isRequired,
     changeNote: PropTypes.func.isRequired,
   };
 
