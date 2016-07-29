@@ -18,8 +18,6 @@ const editorConfig = [
   plugins.JustifyRightPlugin,
 ];
 
-let timeoutId;
-
 export default class Page extends Component {
 
   static propTypes = {
@@ -27,11 +25,9 @@ export default class Page extends Component {
     changeNote: PropTypes.func.isRequired,
   };
 
-  saveLater(str) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(
-      () => this.onChange('body')(str), 100
-    );
+  componentWillReceiveProps(newProps) {
+    if (this.props.activeNote.id === newProps.activeNote.id) return;
+    this.setState({initValue: newProps.activeNote.body})
   }
 
   onChange(type) {
@@ -45,6 +41,7 @@ export default class Page extends Component {
   render() {
     const {activeNote, deleteNote} = this.props;
     const notEmpty = note => !!(note && note.id);
+    const {initValue} = this.state || {};
 
     return (
     	<div className="o-grid__cell--width-55 o-panel-container">
@@ -69,9 +66,9 @@ export default class Page extends Component {
               {dateTimeFormat(activeNote.date)}
             </div>
             <Writer
-              onChange={::this.saveLater}
+              onChange={this.onChange('body')}
               toolbar={editorConfig}
-              value={activeNote.body}/>
+              value={initValue}/>
           </div>
         }
     	</div>
