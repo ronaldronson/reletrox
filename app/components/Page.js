@@ -43,23 +43,14 @@ export default class Page extends Component {
   }
 
   render() {
-    const {activeNote} = this.props;
+    const {activeNote, deleteNote} = this.props;
     const notEmpty = note => !!(note && note.id);
 
     return (
     	<div className="o-grid__cell--width-55 o-panel-container">
     		<nav className="c-nav c-nav--inline c-nav--light">
-    			<span className="c-nav__item">
+    			<span className="c-nav__item" onClick={deleteNote}>
             <i className="fa fa-trash"></i>
-          </span>
-    			<span className="c-nav__item">
-            <i className="fa fa-reply"></i>
-          </span>
-    			<span className="c-nav__item">
-            <i className="fa fa-reply-all"></i>
-          </span>
-    			<span className="c-nav__item">
-            <i className="fa fa-arrow-right"></i>
           </span>
     			<span className="c-nav__item c-nav__item--right">
             <i className="fa fa-refresh"></i>

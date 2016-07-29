@@ -15,6 +15,7 @@ export default class HomePage extends Component {
     const {
       addNote,
       changeNote,
+      deleteNote,
       setActiveCategory,
       setActiveNote,
       setSortByDate,
@@ -41,7 +42,8 @@ export default class HomePage extends Component {
           filterByInput={filterByInput}/>
         <Page
           activeNote={activeNote}
-          changeNote={changeNote}/>
+          changeNote={changeNote}
+          deleteNote={deleteNote}/>
       </main>
     );
   }

@@ -5,6 +5,7 @@ import {
   ACTIVE_NOTE,
   ADD_NOTE,
   CHANGE_NOTE,
+  DELETE_NOTE,
   SORT_BY_DATE,
   FILTER_BY_INPUT,
   SYNC_NOTES
@@ -12,7 +13,7 @@ import {
 
 const getNotes = state => state.data
   .filter(obj => obj.category === state.activeCategory)
-  .shift().notes;
+  .shift();
 
 const getNewNote = () => ({
   id: uuid.v4(),
@@ -39,21 +40,31 @@ export default function counter(state = {}, action) {
       const newNote = getNewNote();
       const newState = {...state, activeNote: newNote};
 
-      getNotes(newState).push(newNote);
+      getNotes(newState).notes.push(newNote);
 
       return newState;
     }
 
-    case CHANGE_NOTE:
+    case CHANGE_NOTE: {
       const newState = {...state, activeNote: action.value};
 
-      Object.assign(getNotes(newState)
+      Object.assign(getNotes(newState).notes
         .filter(obj => obj.id === action.value.id).shift(),
         action.value,
         {date: Date.now()}
       );
 
       return newState;
+    }
+
+    case DELETE_NOTE: {
+      const newState = {...state, activeNote: {}};
+      const notesObj = getNotes(newState);
+      notesObj.notes = notesObj.notes
+        .filter(note => note.id !== state.activeNote.id);;
+
+      return newState;
+    }
 
     default:
       return state;

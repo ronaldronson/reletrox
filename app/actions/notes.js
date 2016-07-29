@@ -1,10 +1,12 @@
-export const SYNC_NOTES = 'SYNC_NOTES';
 export const ACTIVE_CATEGORY = 'ACTIVE_CATEGORY';
 export const ACTIVE_NOTE = 'ACTIVE_NOTE';
-export const CHANGE_NOTE = 'CHANGE_NOTE';
-export const SORT_BY_DATE = 'SORT_BY_DATE';
-export const FILTER_BY_INPUT = 'FILTER_BY_INPUT';
 export const ADD_NOTE = 'ADD_NOTE';
+export const CHANGE_NOTE = 'CHANGE_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const FILTER_BY_INPUT = 'FILTER_BY_INPUT';
+export const SORT_BY_DATE = 'SORT_BY_DATE';
+export const SYNC_NOTES = 'SYNC_NOTES';
+
 
 export function sync() {
   return {
@@ -46,8 +48,15 @@ export function filterByInput(value) {
   };
 }
 
+
 export function addNote() {
   return {
     type: ADD_NOTE
+  }
+}
+
+export function deleteNote() {
+  return {
+    type: DELETE_NOTE
   }
 }
