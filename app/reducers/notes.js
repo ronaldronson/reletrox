@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import {
   ACTIVE_CATEGORY,
   ACTIVE_NOTE,
+  ADD_CATEGORY,
   ADD_NOTE,
   CHANGE_NOTE,
   DELETE_NOTE,
@@ -15,14 +16,20 @@ const getNotes = state => state.data
   .filter(obj => obj.category === state.activeCategory)
   .shift();
 
+const getNewCategory = (val) => ({
+  id: uuid.v4(),
+  category: val,
+  notes: []
+});
+
 const getNewNote = () => ({
   id: uuid.v4(),
   title: 'Untitled',
   date: Date.now(),
   body: ''
-})
+});
 
-export default function counter(state = {}, action) {
+export default function notes(state = {}, action) {
   switch (action.type) {
     case ACTIVE_CATEGORY:
       return {...state, activeCategory: action.value};
@@ -41,6 +48,15 @@ export default function counter(state = {}, action) {
       const newState = {...state, activeNote: newNote};
 
       getNotes(newState).notes.push(newNote);
+
+      return newState;
+    }
+
+    case ADD_CATEGORY: {
+      const newCategory = getNewCategory(action.value);
+      const newState = {...state, activeCategory: action.value};
+
+      newState.data.push(newCategory);
 
       return newState;
     }

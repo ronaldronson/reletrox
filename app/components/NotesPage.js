@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react'
+import Modal from './Modal';
 import Navigation from './Navigation'
 import List from './List'
-import Page from './Page'
+import Item from './Item'
 
 export default class HomePage extends Component {
 
@@ -13,6 +14,7 @@ export default class HomePage extends Component {
 
   render() {
     const {
+      addCategory,
       addNote,
       changeNote,
       deleteNote,
@@ -20,9 +22,12 @@ export default class HomePage extends Component {
       setActiveNote,
       setSortByDate,
       filterByInput,
+      openPopup,
+      closePopup,
       notes: {activeCategory, activeNote, sortByDate, filter},
       notesList,
-      categories
+      categories,
+      popups
     } = this.props;
 
     return (
@@ -30,6 +35,7 @@ export default class HomePage extends Component {
         <Navigation
           activeCategory={activeCategory}
           categories={categories}
+          openPopup={openPopup}
           setActiveCategory={setActiveCategory}/>
         <List
           activeNote={activeNote}
@@ -40,10 +46,14 @@ export default class HomePage extends Component {
           sortByDate={sortByDate}
           filter={filter}
           filterByInput={filterByInput}/>
-        <Page
+        <Item
           activeNote={activeNote}
           changeNote={changeNote}
           deleteNote={deleteNote}/>
+        <Modal
+          action={addCategory}
+          isOpen={popups.open}
+          close={closePopup} />
       </main>
     );
   }

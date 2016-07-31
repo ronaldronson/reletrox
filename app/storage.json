@@ -1,7 +1,6 @@
 {
   "data": [{
     "category": "First",
-    "color": "success",
     "notes": [{
         "id": 1,
         "title": "Start-up goals for this year",
@@ -41,7 +40,6 @@
     ]
   }, {
     "category": "Second",
-    "color": "fail",
     "notes": [{
         "id": 1,
         "title": "Title 1",
@@ -56,7 +54,6 @@
     ]
   }, {
     "category": "Third",
-    "color": "secondary",
     "notes": []
   }, {
     "category": "Forth",

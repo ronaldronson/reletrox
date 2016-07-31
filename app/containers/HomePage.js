@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as Actions from '../actions/notes';
+import * as notesActions from '../actions/notes';
+import * as popupsActions from '../actions/popups';
 import NotesPage from '../components/NotesPage';
 
 function filterNotesByVal(notesList, filterVal) {
@@ -27,6 +28,7 @@ function mapStateToProps(state) {
 
   return {
     notes: state.notes,
+    popups: state.popups,
     categories: state.notes.data.map(obj => ({
       count: obj.notes.length,
       name: obj.category
@@ -37,7 +39,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch);
+  return bindActionCreators({...notesActions, ...popupsActions}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NotesPage);

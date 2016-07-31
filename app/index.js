@@ -11,7 +11,7 @@ import notes from './storage';
 const persistedStore = {
   notes: {
     data: notes.data,
-    activeCategory: "First",
+    activeCategory: notes.data[0].category,
     activeNote: {},
   }
 }
