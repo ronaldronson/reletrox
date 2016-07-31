@@ -18,6 +18,8 @@ const editorConfig = [
   plugins.JustifyRightPlugin,
 ];
 
+const notEmpty = note => !!(note && note.id);
+
 export default class Item extends Component {
 
   static propTypes = {
@@ -39,18 +41,26 @@ export default class Item extends Component {
     });
   }
 
+  onDelete() {
+    const {activeNote, deleteNote} = this.props;
+    if (!notEmpty(activeNote)) return;
+    confirm(`Delete "${activeNote.title}" ?`) && deleteNote();
+  }
+
   render() {
     const {activeNote, deleteNote} = this.props;
-    const notEmpty = note => !!(note && note.id);
+
     const {initValue} = this.state || {};
 
     return (
     	<div className="o-grid__cell--width-55 o-panel-container">
     		<nav className="c-nav c-nav--inline c-nav--light">
-    			<span className="c-nav__item" onClick={deleteNote}>
+    			<span
+            className="c-nav__item c-nav__item--error"
+            onClick={::this.onDelete}>
             <i className="fa fa-trash"></i>
           </span>
-    			<span className="c-nav__item c-nav__item--right">
+    			<span className="c-nav__item c-nav__item--right c-nav__item--success">
             <i className="fa fa-refresh"></i>
           </span>
     		</nav>

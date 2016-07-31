@@ -41,7 +41,7 @@ export default class List extends Component {
                   'fa-chevron-up': !!sortByDate})}></i>
             </span>
             </span>
-            <span className="c-nav__item c-nav__item--right"
+            <span className="c-nav__item c-nav__item--right c-nav__item--success"
               onClick={addNote}>
               <i className="fa fa-plus"></i>
             </span>
