@@ -4,9 +4,11 @@ export const ADD_CATEGORY = 'ADD_CATEGORY';
 export const ADD_NOTE = 'ADD_NOTE';
 export const CHANGE_NOTE = 'CHANGE_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
+export const DELETE_CATEGORY = 'DELETE_CATEGORY';
 export const FILTER_BY_INPUT = 'FILTER_BY_INPUT';
 export const SORT_BY_DATE = 'SORT_BY_DATE';
 export const SYNC_NOTES = 'SYNC_NOTES';
+export const EDIT_MODE = 'EDIT_MODE';
 
 export function sync() {
   return {
@@ -61,9 +63,23 @@ export function deleteNote() {
   }
 }
 
+export function deleteCategory(value) {
+  return {
+    type: DELETE_CATEGORY,
+    value: value
+  }
+}
+
 export function addCategory(value) {
   return {
     type: ADD_CATEGORY,
+    value: value
+  }
+}
+
+export function setEditMode(value) {
+  return {
+    type: EDIT_MODE,
     value: value
   }
 }

@@ -14,6 +14,7 @@
 	border-right: 0;
 }
 
+/* Item title styles start  */
 h1.note-header > input {
 	border: 1px solid #FFF;
 	padding-left: 0;
@@ -23,7 +24,9 @@ h1.note-header > input:focus{
   border: 1px solid #FFF;
 	box-shadow: none;
 }
+/* Item title styles end  */
 
+/* Editor styles start */
 .Vico,
 .VicoToolbar,
 .VicoEditArea {
@@ -31,4 +34,9 @@ h1.note-header > input:focus{
 	background: none;
 	box-shadow: none;
 	padding: 0 !important;
+}
+/* Editor styles end */
+
+.app-navigation {
+	-webkit-user-select: none;	
 }

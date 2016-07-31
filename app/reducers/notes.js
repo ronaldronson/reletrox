@@ -7,9 +7,11 @@ import {
   ADD_NOTE,
   CHANGE_NOTE,
   DELETE_NOTE,
+  DELETE_CATEGORY,
   SORT_BY_DATE,
   FILTER_BY_INPUT,
-  SYNC_NOTES
+  SYNC_NOTES,
+  EDIT_MODE
 } from '../actions/notes';
 
 const getNotes = state => state.data
@@ -77,10 +79,20 @@ export default function notes(state = {}, action) {
       const newState = {...state, activeNote: {}};
       const notesObj = getNotes(newState);
       notesObj.notes = notesObj.notes
-        .filter(note => note.id !== state.activeNote.id);;
+        .filter(note => note.id !== state.activeNote.id);
 
       return newState;
     }
+
+    case DELETE_CATEGORY: {
+      const newData = state.data.filter(obj => obj.category !== action.value);
+      const activeCategory = newData[0] && newData[0].category;
+
+      return {...state, ...{data: newData}, ...{activeCategory: activeCategory}};
+    }
+
+    case EDIT_MODE:
+      return {...state, editMode: !!action.value}
 
     default:
       return state;

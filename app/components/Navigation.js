@@ -15,27 +15,38 @@ export default class Navidation extends Component {
     const {
       activeCategory,
       categories,
+      deleteCategory,
+      editMode,
       openPopup,
-      setActiveCategory
+      setActiveCategory,
+      setEditMode
     } = this.props;
 
     const isActive = category => category.name === activeCategory;
+    const delCat = cat => e => (e.stopPropagation(), deleteCategory(cat));
 
     return (
-      <div className="o-grid__cell--width-15 o-panel-container">
-        <nav className="c-nav c-nav--light o-panel">
-          <div onClick={openPopup} className="c-nav__item c-nav__item--success c-nav__item--active">
-            <i className="fa fa-plus"></i> Add new
+      <div className="o-grid__cell--width-15 o-panel-container app-navigation">
+        <nav className="c-nav c-nav--light a-nav--fast o-panel">
+          <div
+            className="c-nav__content">
+            <i className="fa fa-pencil-square-o"></i>  Categories
           </div>
           {categories.map(cat =>
             <div key={cat.name}
-              className={classnames('c-nav__item', {
+              className={classnames('c-nav__item', 'u-window-box--small',{
                 'c-nav__item--primary': isActive(cat),
                 'c-nav__item--active': isActive(cat)
               })}
               onClick={() => setActiveCategory(cat.name)}>
-              {cat.name}
-              {' '}
+              {!!editMode &&
+                <span
+                  className="c-badge c-badge--error"
+                  onClick={delCat(cat.name)}>
+                  <i className="fa fa-close"></i>
+                </span>
+              }
+              {' '}{cat.name}{' '}
               {!!cat.count && (
                 <span className={classnames(
                   'c-badge',
@@ -46,6 +57,18 @@ export default class Navidation extends Component {
               )}
             </div>
           )}
+          {!!editMode &&
+            <div
+              className="c-nav__item c-nav__item--success u-window-box--small"
+              onClick={openPopup}>
+              <i className="fa fa-plus"></i> Add new
+            </div>
+          }
+          <div
+            className="c-nav__item c-nav__item--secondary c-nav--bottom u-window-box--small"
+            onClick={() => setEditMode(!editMode)}>
+            <i className="fa fa-cog"></i>  Customize
+          </div>
         </nav>
       </div>
     );

@@ -17,14 +17,18 @@ export default class HomePage extends Component {
       addCategory,
       addNote,
       changeNote,
+      deleteCategory,
       deleteNote,
+
       setActiveCategory,
       setActiveNote,
       setSortByDate,
+      setEditMode,
+
       filterByInput,
       openPopup,
       closePopup,
-      notes: {activeCategory, activeNote, sortByDate, filter},
+      notes: {activeCategory, activeNote, editMode, sortByDate, filter},
       notesList,
       categories,
       popups
@@ -35,6 +39,9 @@ export default class HomePage extends Component {
         <Navigation
           activeCategory={activeCategory}
           categories={categories}
+          deleteCategory={deleteCategory}
+          editMode={editMode}
+          setEditMode={setEditMode}
           openPopup={openPopup}
           setActiveCategory={setActiveCategory}/>
         <List
