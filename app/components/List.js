@@ -57,8 +57,8 @@ export default class List extends Component {
                     type="text"
                     placeholder="Search by ..."
                     value={filter || ''} />
-                  <button className="c-button">
-                    <i className="fa fa-times" onClick={() => filterByInput()}></i>
+                  <button className="c-button" onClick={() => filterByInput()}>
+                    <i className="fa fa-times"></i>
                   </button>
                 </div>
               </div>
