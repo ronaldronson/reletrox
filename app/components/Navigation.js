@@ -5,10 +5,10 @@ import classnames from 'classnames';
 export default class Navidation extends Component {
 
   static propTypes = {
-    activeCategory: PropTypes.string.isRequired,
+    activeCategory: PropTypes.string,
     categories: PropTypes.array.isRequired,
     openPopup: PropTypes.func.isRequired,
-    editMode: PropTypes.bool.isRequired,
+    editMode: PropTypes.bool,
     deleteCategory: PropTypes.func.isRequired,
     setActiveCategory: PropTypes.func.isRequired,
     setEditMode: PropTypes.func.isRequired,

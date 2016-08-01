@@ -19,7 +19,7 @@ export default class HomePage extends Component {
     filterByInput: PropTypes.func.isRequired,
     openPopup: PropTypes.func.isRequired,
     closePopup: PropTypes.func.isRequired,
-    notesList: PropTypes.object.isRequired,
+    notesList: PropTypes.array.isRequired,
     popups: PropTypes.object.isRequired,
     notes: PropTypes.object.isRequired,
     categories: PropTypes.array.isRequired,

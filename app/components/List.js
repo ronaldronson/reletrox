@@ -7,7 +7,7 @@ export default class List extends Component {
   static propTypes = {
     activeNote: PropTypes.object.isRequired,
     addNote: PropTypes.func.isRequired,
-    notesList: PropTypes.array.isRequired,
+    notesList: PropTypes.array,
     setActiveNote: PropTypes.func.isRequired,
     setSortByDate: PropTypes.func.isRequired,
     sortByDate: PropTypes.bool,
@@ -48,14 +48,7 @@ export default class List extends Component {
     		</nav>
         <div className="o-panel o-panel--nav-top">
     			<div className={classnames('c-card', {'t-demo': !!notesList.length})}>
-            {!notesList.length &&
-              <div className="c-card__content u-window-box--xlarge">
-                <p className="c-paragraph">
-                  To add new Note plese click on <i className="fa fa-plus"></i> icon above
-                </p>
-              </div>
-            }
-            {!!notesList.length &&
+            {(!!notesList.length || !!filter) &&
               <div className="c-card__item u-window-box--small">
                 <div className="c-input-group">
                   <input
@@ -68,6 +61,13 @@ export default class List extends Component {
                     <i className="fa fa-times" onClick={() => filterByInput()}></i>
                   </button>
                 </div>
+              </div>
+            }
+            {(!notesList.length && !filter) &&
+              <div className="c-card__content u-window-box--xlarge">
+                <p className="c-paragraph c-text--quiet">
+                  To add new Note plese click on <i className="fa fa-plus"></i> icon above
+                </p>
               </div>
             }
             {notesList.map(note =>

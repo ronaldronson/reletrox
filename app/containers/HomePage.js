@@ -21,9 +21,11 @@ function filterNotesByVal(notesList, filterVal) {
 function mapStateToProps(state) {
   const filterVal = state.notes.filter;
   const sortDir = state.notes.sortByDate ? -1 : 1;
-  const notesList = state.notes.data
+  const activeCategory = state.notes.data
     .filter(obj => obj.category === state.notes.activeCategory)
-    .shift().notes
+    .shift();
+
+  const notesList = !activeCategory ? [] : activeCategory.notes
     .sort((a, b) => (a.date < b.date ? 1 : -1) * sortDir);
 
   return {
