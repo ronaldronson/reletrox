@@ -11,7 +11,7 @@ export default class List extends Component {
     setActiveNote: PropTypes.func.isRequired,
     setSortByDate: PropTypes.func.isRequired,
     sortByDate: PropTypes.bool,
-    fiter: PropTypes.string,
+    filter: PropTypes.string,
     filterByInput: PropTypes.func.isRequired,
   };
 

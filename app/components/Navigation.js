@@ -8,7 +8,10 @@ export default class Navidation extends Component {
     activeCategory: PropTypes.string.isRequired,
     categories: PropTypes.array.isRequired,
     openPopup: PropTypes.func.isRequired,
+    editMode: PropTypes.bool.isRequired,
+    deleteCategory: PropTypes.func.isRequired,
     setActiveCategory: PropTypes.func.isRequired,
+    setEditMode: PropTypes.func.isRequired,
   };
 
   render() {
@@ -67,7 +70,7 @@ export default class Navidation extends Component {
           <div
             className="c-nav__item c-nav__item--secondary c-nav--bottom u-window-box--small"
             onClick={() => setEditMode(!editMode)}>
-            <i className="fa fa-cog"></i>  Customize
+            <i className="fa fa-cog"></i>  {editMode ? 'Done' : 'Customize'}
           </div>
         </nav>
       </div>

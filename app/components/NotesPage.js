@@ -7,7 +7,20 @@ import Item from './Item'
 export default class HomePage extends Component {
 
   static propTypes = {
+    addCategory: PropTypes.func.isRequired,
+    addNote: PropTypes.func.isRequired,
+    changeNote: PropTypes.func.isRequired,
+    deleteCategory: PropTypes.func.isRequired,
+    deleteNote: PropTypes.func.isRequired,
     setActiveCategory: PropTypes.func.isRequired,
+    setActiveNote: PropTypes.func.isRequired,
+    setSortByDate: PropTypes.func.isRequired,
+    setEditMode: PropTypes.func.isRequired,
+    filterByInput: PropTypes.func.isRequired,
+    openPopup: PropTypes.func.isRequired,
+    closePopup: PropTypes.func.isRequired,
+    notesList: PropTypes.object.isRequired,
+    popups: PropTypes.object.isRequired,
     notes: PropTypes.object.isRequired,
     categories: PropTypes.array.isRequired,
   };
