@@ -47,40 +47,49 @@ export default class List extends Component {
             </span>
     		</nav>
         <div className="o-panel o-panel--nav-top">
-    			<div className="c-card t-demo">
-            <div className="c-card__item u-window-box--small">
-              <div className="c-input-group">
-                <input
-                  className="c-field"
-                  onChange={e => filterByInput(e.target.value)}
-                  type="text"
-                  placeholder="Search by ..."
-                  value={filter || ''} />
-                <button className="c-button">
-                  <i className="fa fa-times" onClick={() => filterByInput()}></i>
-                </button>
+    			<div className={classnames('c-card', {'t-demo': !!notesList.length})}>
+            {!notesList.length &&
+              <div className="c-card__content u-window-box--xlarge">
+                <p className="c-paragraph">
+                  To add new Note plese click on <i className="fa fa-plus"></i> icon above
+                </p>
               </div>
-            </div>
-          {notesList.map(note =>
-            <div key={note.id}
-              className={classnames(
-                'c-card__item u-window-box--medium',
-                {'c-card--is-active': isActive(note)}
-              )}
-              onClick={() => setActiveNote(note)}>
-              <div className="c-text--loud">
-                {note.title}
+            }
+            {!!notesList.length &&
+              <div className="c-card__item u-window-box--small">
+                <div className="c-input-group">
+                  <input
+                    className="c-field"
+                    onChange={e => filterByInput(e.target.value)}
+                    type="text"
+                    placeholder="Search by ..."
+                    value={filter || ''} />
+                  <button className="c-button">
+                    <i className="fa fa-times" onClick={() => filterByInput()}></i>
+                  </button>
+                </div>
               </div>
-              <div className="u-letter-box--xsmall">
-              {dateTimeFormat(note.date)}
+            }
+            {notesList.map(note =>
+              <div key={note.id}
+                className={classnames(
+                  'c-card__item u-window-box--medium',
+                  {'c-card--is-active': isActive(note)}
+                )}
+                onClick={() => setActiveNote(note)}>
+                <div className="c-text--loud">
+                  {note.title}
+                </div>
+                <div className="u-letter-box--xsmall">
+                {dateTimeFormat(note.date)}
+                </div>
+                <div className="c-text--quiet">
+                  <Dotdotdot clamp={3}>
+                    {sripHtml(note.body)}
+                  </Dotdotdot>
+                </div>
               </div>
-              <div className="c-text--quiet">
-                <Dotdotdot clamp={3}>
-                  {sripHtml(note.body)}
-                </Dotdotdot>
-              </div>
-            </div>
-          )}
+            )}
     			</div>
     		</div>
     	</div>
