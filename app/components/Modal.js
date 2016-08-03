@@ -12,7 +12,17 @@ export default class Modal extends Component {
     const {action, close} = this.props;
 
     action(this.state.value);
+    this.setState({value: ''});
     close();
+  }
+
+  onKeyUp(e) {
+    switch (e.which) {
+      case 13: // enter
+        return this.onAction();
+      case 27: // esc
+        return this.props.close();
+    }
   }
 
   render() {
@@ -44,9 +54,9 @@ export default class Modal extends Component {
                 autoFocus
                 className="c-field"
                 onChange={e => this.setState({value: e.target.value})}
+                onKeyUp={::this.onKeyUp}
                 placeholder="New category"
-                value={this.state ? this.state.value : ''}
-                />
+                value={this.state ? this.state.value : ''} />
             </div>
           </div>
 

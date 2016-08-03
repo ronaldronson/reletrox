@@ -33,7 +33,7 @@ export default class Navidation extends Component {
         <nav className="c-nav c-nav--light a-nav--fast o-panel">
           <div
             className="c-nav__content">
-            <i className="fa fa-pencil-square-o"></i>  Categories
+            <i className="fa fa-pencil-square-o"></i>  Notes
           </div>
           {categories.map(cat =>
             <div key={cat.name}
@@ -70,7 +70,7 @@ export default class Navidation extends Component {
           <div
             className="c-nav__item c-nav__item--secondary c-nav--bottom u-window-box--small"
             onClick={() => setEditMode(!editMode)}>
-            <i className="fa fa-cog"></i>  {editMode ? 'Done' : 'Customize'}
+            <i className="fa fa-cog"></i>  {editMode ? 'Done' : 'Edit'}
           </div>
         </nav>
       </div>
