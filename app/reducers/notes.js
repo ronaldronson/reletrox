@@ -15,7 +15,7 @@ import {
 } from '../actions/notes';
 
 const getNotes = state => state.data
-  .filter(obj => obj.category === state.activeCategory)
+  .filter(obj => obj.id === state.activeCategory)
   .shift();
 
 const getNewCategory = (val) => ({
@@ -85,8 +85,8 @@ export default function notes(state = {}, action) {
     }
 
     case DELETE_CATEGORY: {
-      const newData = state.data.filter(obj => obj.category !== action.value);
-      const activeCategory = newData[0] && newData[0].category;
+      const newData = state.data.filter(obj => obj.id !== action.value);
+      const activeCategory = newData[0] && newData[0].id;
 
       return {...state, ...{data: newData}, ...{activeCategory: activeCategory}};
     }

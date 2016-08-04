@@ -22,7 +22,7 @@ function mapStateToProps(state) {
   const filterVal = state.notes.filter;
   const sortDir = state.notes.sortByDate ? -1 : 1;
   const activeCategory = state.notes.data
-    .filter(obj => obj.category === state.notes.activeCategory)
+    .filter(obj => obj.id === state.notes.activeCategory)
     .shift();
 
   const notesList = !activeCategory ? [] : activeCategory.notes
@@ -32,6 +32,7 @@ function mapStateToProps(state) {
     notes: state.notes,
     popups: state.popups,
     categories: state.notes.data.map(obj => ({
+      id: obj.id,
       count: obj.notes.length,
       name: obj.category
     })),

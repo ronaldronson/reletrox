@@ -25,7 +25,7 @@ export default class Navidation extends Component {
       setEditMode
     } = this.props;
 
-    const isActive = category => category.name === activeCategory;
+    const isActive = category => category.id === activeCategory;
     const delCat = cat => e => (e.stopPropagation(), deleteCategory(cat));
 
     return (
@@ -36,16 +36,16 @@ export default class Navidation extends Component {
             <i className="fa fa-pencil-square-o"></i>  Notes
           </div>
           {categories.map(cat =>
-            <div key={cat.name}
+            <div key={cat.id}
               className={classnames('c-nav__item', 'u-window-box--small',{
                 'c-nav__item--primary': isActive(cat),
                 'c-nav__item--active': isActive(cat)
               })}
-              onClick={() => setActiveCategory(cat.name)}>
+              onClick={() => setActiveCategory(cat.id)}>
               {!!editMode &&
                 <span
                   className="c-badge c-badge--error c-badge--rounded"
-                  onClick={delCat(cat.name)}>
+                  onClick={delCat(cat.id)}>
                   <i className="fa fa-close"></i>
                 </span>
               }

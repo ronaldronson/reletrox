@@ -8,7 +8,7 @@ import configureStore from './store/configureStore';
 import './app.global.css';
 
 const notes = [{
-  "id": 1,
+  "id": '1',
   "category": "First category",
   "notes": []
 }];
@@ -16,7 +16,7 @@ const notes = [{
 const persistedStore = {
   notes: {
     data: notes,
-    activeCategory: notes[0].category,
+    activeCategory: notes[0].id,
     activeNote: {},
   }
 }
