@@ -56,11 +56,12 @@ export default class Item extends Component {
     	<div className="o-grid__cell--width-55 o-panel-container">
     		<nav className="c-nav c-nav--inline c-nav--light">
     			<span
-            className="c-nav__item c-nav__item--error"
+            aria-label="Delete current note"
+            className="c-nav__item c-nav__item--error c-tooltip c-tooltip--bottom"
             onClick={::this.onDelete}>
             <i className="fa fa-trash"></i>
           </span>
-    			<span className="c-nav__item c-nav__item--right c-nav__item--success">
+    			<span aria-label="Synchronize" className="c-nav__item c-nav__item--right c-nav__item--success c-tooltip c-tooltip--left">
             <i className="fa fa-refresh"></i>
           </span>
     		</nav>

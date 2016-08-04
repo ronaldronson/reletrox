@@ -35,7 +35,7 @@ export default class Modal extends Component {
         <div className="c-overlay"></div>
         <div
           className="c-modal c-modal--high a-modal a-modal--top"
-          style={{top: '20%', width: '400px'}}>
+          style={{width: '400px'}}>
           <header className="c-modal__header">
             <button
               className="c-button c-button--close"

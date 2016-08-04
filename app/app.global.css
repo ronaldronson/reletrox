@@ -38,5 +38,9 @@ h1.note-header > input:focus{
 /* Editor styles end */
 
 .app-navigation {
-	-webkit-user-select: none;	
+	-webkit-user-select: none;
+}
+
+.app-welcome {
+	height: 400px;
 }

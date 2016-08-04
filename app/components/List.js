@@ -41,7 +41,9 @@ export default class List extends Component {
                   'fa-chevron-up': !!sortByDate})}></i>
             </span>
             </span>
-            <span className="c-nav__item c-nav__item--right c-nav__item--success"
+            <span
+              aria-label="Add new note"
+              className="c-nav__item c-nav__item--right c-nav__item--success c-tooltip c-tooltip--bottom"
               onClick={addNote}>
               <i className="fa fa-plus"></i>
             </span>

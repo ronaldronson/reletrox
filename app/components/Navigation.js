@@ -44,7 +44,7 @@ export default class Navidation extends Component {
               onClick={() => setActiveCategory(cat.name)}>
               {!!editMode &&
                 <span
-                  className="c-badge c-badge--error"
+                  className="c-badge c-badge--error c-badge--rounded"
                   onClick={delCat(cat.name)}>
                   <i className="fa fa-close"></i>
                 </span>
