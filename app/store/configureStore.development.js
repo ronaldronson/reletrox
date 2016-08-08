@@ -4,6 +4,7 @@ import createLogger from 'redux-logger';
 import { hashHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import rootReducer from '../reducers';
+import watcher from '../utils/watchMiddleware';
 
 const logger = createLogger({
   level: 'info',
@@ -13,7 +14,7 @@ const logger = createLogger({
 const router = routerMiddleware(hashHistory);
 
 const enhancer = compose(
-  applyMiddleware(thunk, router, logger),
+  applyMiddleware(thunk, router, logger, watcher),
   window.devToolsExtension ? window.devToolsExtension() : noop => noop
 );
 

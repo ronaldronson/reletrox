@@ -98,6 +98,7 @@
   "dependencies": {
     "blaze": "^2.8.0",
     "classnames": "^2.2.5",
+    "clone": "^1.0.2",
     "css-modules-require-hook": "^4.0.0",
     "electron-debug": "^1.0.1",
     "font-awesome": "^4.6.3",
