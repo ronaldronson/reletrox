@@ -16,7 +16,7 @@ export default store => next => action => {
   const notesBefore = clone(getSlice(store));
   const result = next(action)
   if (!isEqual(notesBefore, getSlice(store))) {
-    console.log('notes updated!', getSlice(store))
+    // console.log('notes updated!', getSlice(store))
   }
   // after && after(store.getState(), action, result);
   return result;

@@ -6,17 +6,14 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import routes from './routes';
 import configureStore from './store/configureStore';
 import './app.global.css';
+import { getNewCategory } from './utils/factory';
 
-const notes = [{
-  "id": '1',
-  "category": "First category",
-  "notes": []
-}];
+const firstCategory = getNewCategory('First category');
 
 const persistedStore = {
   notes: {
-    data: notes,
-    activeCategory: notes[0].id,
+    data: {[firstCategory.id]: firstCategory},
+    activeCategory: firstCategory.id,
     activeNote: {},
   }
 }
