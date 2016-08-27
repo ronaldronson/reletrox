@@ -20,11 +20,12 @@ function mapStateToProps(state) {
     .filter(o => !o.deleted)
     .map(obj => ({
       id: obj.id,
-      count: mapObj(obj.notes).length,
+      count: mapObj(obj.notes).filter(o => !o.deleted).length,
       name: obj.category
     }));
 
   return {
+    data: data,
     notes: state.notes,
     popups: state.popups,
     categories: categoriesList,

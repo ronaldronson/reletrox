@@ -101,6 +101,7 @@
     "clone": "^1.0.2",
     "css-modules-require-hook": "^4.0.0",
     "electron-debug": "^1.0.1",
+    "extend": "^3.0.0",
     "font-awesome": "^4.6.3",
     "postcss": "^5.0.21",
     "react": "^15.1.0",

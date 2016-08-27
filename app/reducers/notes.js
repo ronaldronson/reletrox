@@ -1,3 +1,4 @@
+import extend from 'extend';
 import { getNewCategory, getNewNote } from '../utils/factory';
 
 import {
@@ -30,34 +31,34 @@ export default function notes(state = {}, action) {
 
     case ADD_NOTE: {
       const newNote = getNewNote();
-      const newState = {...state, activeNote: newNote};
-      state.data[state.activeCategory].notes[newNote.id] = newNote;
-      return newState;
+      const newState = extend(true, {}, state);
+      newState.data[state.activeCategory].notes[newNote.id] = newNote;
+      return {...newState, activeNote: newNote};;
     }
 
     case ADD_CATEGORY: {
       const newCategory = getNewCategory(action.value);
-      const newState = {...state, activeCategory: newCategory.id};
+      const newState = extend(true, {}, state);
       newState.data[newCategory.id] = newCategory;
-      return newState;
+      return {...newState, activeCategory: newCategory.id};
     }
 
     case CHANGE_NOTE: {
-      const newState = {...state, activeNote: action.value};
-      const note = state.data[state.activeCategory].notes[action.value.id];
+      const newState = extend(true, {}, state);
+      const note = newState.data[state.activeCategory].notes[action.value.id];
       Object.assign(note, action.value, {date: Date.now()});
-      return newState;
+      return {...newState, activeNote: note};
     }
 
     case DELETE_NOTE: {
-      const newState = {...state, activeNote: {}};
+      const newState = extend(true, {}, state);
       const notesObj = state.data[state.activeCategory].notes[state.activeNote.id];
       notesObj.deleted = true;
-      return newState;
+      return {...newState, activeNote: {}};
     }
 
     case DELETE_CATEGORY: {
-      const newState = {...state};
+      const newState = extend(true, {}, state);
       newState.data[action.value].deleted = true;
       const firstNotDeletedCat = Object.keys(newState.data)
         .map(i => newState.data[i])
@@ -65,10 +66,10 @@ export default function notes(state = {}, action) {
         .shift();
 
       const newActiveCategory = newState.activeCategory == action.value
-        ? firstNotDeletedCat &&  firstNotDeletedCat.id
+        ? firstNotDeletedCat && firstNotDeletedCat.id
         : newState.activeCategory;
 
-      return {...state, ...{activeCategory: newActiveCategory}};
+      return {...newState, ...{activeCategory: newActiveCategory}};
     }
 
     case EDIT_MODE:
